@@ -14,11 +14,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $surname = $_POST["SIGN_UP_surname"];
     $phonenum = $_POST["SIGN_UP_phoneNr"];
     $email = $_POST["SIGN_UP_email"];
-    $birth_place = $_POST["SIGN_UP_birthPlace"];
+    $birth_place = $_POST["SIGN_UP_birthPlace"]; 
+    $pwd = $_POST["SIGN_UP_pwd"];
     
-    $login = 
-    $sql = "INSERT INTO MyGuests (name, surname, email, phonenum, birth_place, login)
-    VALUES ('$name', '$surname', '$email', '$phonenum', '$birth_place', '$login')";
+    // walidacja danych
+    // wrong = DIE
+    // good = :
+
+    $login = rand(10000000,99999999);
+
+    $sql = "INSERT INTO users (name, surname, email, phonenum, birth_place, login, pwd)
+    VALUES ('$name', '$surname', '$email', '$phonenum', '$birth_place', '$login', '$pwd')";
     
     if (mysqli_query($conn, $sql))
     {
