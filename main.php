@@ -98,6 +98,10 @@
                     <label for="SIGN_UP_email">Your email</label>
                 </div>
                 <div class="form-floating mb-3">
+                    <input name="SIGN_UP_pwd" type="text" class="form-control" placeholder="Your password">
+                    <label for="SIGN_UP_pwd">Your password</label>
+                </div>
+                <div class="form-floating mb-3">
                     <input name="SIGN_UP_phoneNr" type="text" class="form-control" placeholder="Your phone number">
                     <label for="SIGN_UP_phoneNr">Your phone number</label>
                 </div>
