@@ -82,7 +82,7 @@
         <!-- Sign Up Section -->
         <div id="signUP_form" class="form-container">
             <h2 class="text-center">Sign Up</h2>
-            <form action="includes/signup/user_signup.inc.php" method="post">
+            <form action="includes/registration_form.inc.php" method="post">
                 <div class="row g-2 mb-3">
                     <div class="form-floating col">
                         <input name="SIGN_UP_name" type="text" class="form-control" placeholder="Your name">
@@ -96,10 +96,6 @@
                 <div class="form-floating mb-3">
                     <input name="SIGN_UP_email" type="email" class="form-control" placeholder="Your email">
                     <label for="SIGN_UP_email">Your email</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input name="SIGN_UP_login" type="text" class="form-control" placeholder="Your login">
-                    <label for="SIGN_UP_login">Your login</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input name="SIGN_UP_phoneNr" type="text" class="form-control" placeholder="Your phone number">

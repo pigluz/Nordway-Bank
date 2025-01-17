@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 	`login` varchar(255) NOT NULL UNIQUE,
 	`email` varchar(255) NOT NULL UNIQUE,
 	`pwd` varchar(255) NOT NULL,
+	`phonenum` varchar(255) NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
