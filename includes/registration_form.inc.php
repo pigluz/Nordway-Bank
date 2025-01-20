@@ -8,24 +8,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $birth_place = $_POST["SIGN_UP_birthPlace"]; 
     $pwd = $_POST["SIGN_UP_pwd"];
     
-    require_once("db_connection.inc.php");
+    try {
+        require_once("db_connection.inc.php");
 
-    $login = rand(10000000,99999999);
-
-    $sql = "INSERT INTO users (name, surname, email, phonenum, birth_place, login, pwd)
-    VALUES ('$name', '$surname', '$email', '$phonenum', '$birth_place', '$login', '$pwd')";
+        $login = rand(10000000,99999999);
     
-    if (mysqli_query($conn, $sql))
-    {
-        echo "New record created successfully";
-    }
-    else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
+        $query = "INSERT INTO users (name, surname, email, phonenum, birth_place, login, pwd)
+        VALUES (:name, :surname, :email, :phonenum, :birth_place, :login, :pwd)";
     
-    $pdo = null;
-    header("Location: ../main.php");
-    die();
+        $options = [
+            'cost' => 12
+        ];
+        $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT, $options);
+    
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":surname", $surname);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":phonenum", $phonenum);
+        $stmt->bindParam(":birth_place", $birth_place);
+        $stmt->bindParam(":login", $login);
+        $stmt->bindParam(":pwd", $hashedPwd);
+    
+        $stmt->execute();
+        $query=null;
+        $pdo=null;
+    
+        header("Location: ../main.php");
+        die();
+    } catch (PDOException $e) {
+        die("Query failed: " . $e->getMessage());
+    }
 } else {
     header("Location: ../main.php");
     die();

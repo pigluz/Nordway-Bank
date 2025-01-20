@@ -100,7 +100,7 @@
                     <label for="SIGN_UP_email">Enter email</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input name="SIGN_UP_pwd" type="text" class="form-control" placeholder="Enter password">
+                    <input name="SIGN_UP_pwd" type="password" class="form-control" placeholder="Enter password">
                     <label for="SIGN_UP_pwd">Enter password</label>
                 </div>
                 <div class="form-floating mb-3">
