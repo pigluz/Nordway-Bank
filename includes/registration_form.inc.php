@@ -1,15 +1,6 @@
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = "root";
-    $password = "";
-    $servername = "localhost";
-    $db_name = "nordway_bank";
-    
-    $conn = new mysqli($servername, $username, $password, $db_name);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    
+
     $name = $_POST["SIGN_UP_name"];
     $surname = $_POST["SIGN_UP_surname"];
     $phonenum = $_POST["SIGN_UP_phoneNr"];
@@ -17,9 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $birth_place = $_POST["SIGN_UP_birthPlace"]; 
     $pwd = $_POST["SIGN_UP_pwd"];
     
-    // walidacja danych
-    // wrong = DIE
-    // good = :
+    require_once("db_connection.inc.php");
 
     $login = rand(10000000,99999999);
 
@@ -34,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
     
-    $conn-> close();
+    $pdo = null;
     header("Location: ../main.php");
     die();
 } else {
