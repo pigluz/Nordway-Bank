@@ -129,7 +129,7 @@
         <!-- Log In Section -->
         <div id="logIN_form" class="form-container">
             <h2 class="text-center">Log In</h2>
-            <form action="includes/login/user_login.inc.php" method="post">
+            <form action="includes/login_form.inc.php" method="post">
                 <div class="form-floating mb-3">
                     <input name="LOG_IN_username/email" type="text" class="form-control" placeholder="Enter login/email">
                     <label for="LOG_IN_username/email">Enter login/email</label>
