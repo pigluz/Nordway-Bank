@@ -31,6 +31,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         if(!password_verify($pwd, $result["pwd"])) {
             die("invalid password");
         }
+        
+        $pdo = null;
+        $query = null;
         header("../mainpage.php");
 
     } catch (PDOException $e) {
