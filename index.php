@@ -1,3 +1,6 @@
+<?php
+    require_once("includes/config_session.inc.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,6 +122,16 @@
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Sign Up</button>
             </form>
+            <?php
+                if (isset($_SESSION["sign_up_errors"])) {
+                    $errors = $_SESSION["sign_up_errors"];
+            
+                    foreach ($errors as $error) {
+                        echo "<p>" . $error . "</p>";
+                    }
+                    unset($_SESSION["sign_up_errors"]);
+                } 
+            ?>
         </div>
 
         <!-- Divider -->
