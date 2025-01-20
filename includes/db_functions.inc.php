@@ -9,4 +9,5 @@ function get_user($pdo, $email)
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     return $result;
 }
+
 ?>
