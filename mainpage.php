@@ -37,7 +37,7 @@
 <body>
     <div id="menu_banner" class="container-fluid text-center">
         <h1>Nordway</h1>
-        <span>For those who strive for more.</span>
+        <span>Hello, nigga!</span>
     </div>
 
     <div id="footer" class="container-fluid text-center mt-5 py-3 border-top">
