@@ -20,7 +20,7 @@ require_once("includes/config_session.inc.php");
             padding: 10px 0; /* Reduced padding */
         }
         #menu_banner h1 {
-            posiiton: absolute;
+            position: absolute;
             left: 10px;
             top: 10px;
         }
