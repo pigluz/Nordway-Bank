@@ -87,7 +87,7 @@
         <!-- Sign Up Section -->
         <div id="signUP_form" class="form-container">
             <h2 class="text-center">Sign Up</h2>
-            <form action="includes/registration_form.inc.php" method="post">
+            <form action="includes/registration/registration_form.inc.php" method="post">
                 <div class="row g-2 mb-3">
                     <div class="form-floating col">
                         <input name="SIGN_UP_name" type="text" class="form-control" placeholder="Enter name">
@@ -142,7 +142,7 @@
         <!-- Log In Section -->
         <div id="logIN_form" class="form-container">
             <h2 class="text-center">Log In</h2>
-            <form action="includes/login_form.inc.php" method="post">
+            <form action="includes/login/login_form.inc.php" method="post">
                 <div class="form-floating mb-3">
                     <input name="LOG_IN_username/email" type="text" class="form-control" placeholder="Enter login/email">
                     <label for="LOG_IN_username/email">Enter login/email</label>

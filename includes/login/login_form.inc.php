@@ -6,7 +6,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     
     try {
         require_once("db_connection.inc.php");
-
         // check if there is any login in the database
         // if not, check if there is any email 
         
@@ -27,6 +26,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 die("no users found");
             }
         } 
+
+        //ADD BETTER VALIDATION
         // if found, check if the pwd is correct
         if(!password_verify($pwd, $result["pwd"])) {
             die("invalid password");
@@ -34,12 +35,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $pdo = null;
         $query = null;
-        header("../mainpage.php");
+        header("../../mainpage.php");
 
     } catch (PDOException $e) {
         die("Query error: " . $e->getMessage());
     }
 } else {
-    header("../index.php");
+    header("../../index.php");
     die();
 }
