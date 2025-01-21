@@ -1,4 +1,4 @@
-![Screenshot of Nordway Bank](src/logo.png)
+
 
 # Nordway Bank
 
