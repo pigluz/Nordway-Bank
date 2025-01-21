@@ -1,5 +1,7 @@
 <?php
-    require_once("includes/config_session.inc.php");
+    require_once "includes/config_session.inc.php";
+    require_once "includes/registration/reg_view.inc.php";
+    require_once "includes/login/login_view.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +12,14 @@
     <link rel="stylesheet" href="css/main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Helvetica, sans-serif,
+            font-family: "Sora", serif;
         }
         #menu_banner {
             background-color: #007bff;
@@ -79,15 +86,12 @@
         <span>For those who strive for more.</span>
     </div>
 
-    <div id="notLoggedIn_banner" class="container mt-4 text-center">
-        <h1>You are not logged in.</h1>
-    </div>
 
     <div class="centered-container">
         <!-- Sign Up Section -->
         <div id="signUP_form" class="form-container">
             <h2 class="text-center">Sign Up</h2>
-            <form action="includes/registration/registration_form.inc.php" method="post">
+            <form action="includes/registration/form_reg.inc.php" method="post">
                 <div class="row g-2 mb-3">
                     <div class="form-floating col">
                         <input name="SIGN_UP_name" type="text" class="form-control" placeholder="Enter name">
@@ -122,16 +126,11 @@
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Sign Up</button>
             </form>
-            <?php
-                if (isset($_SESSION["sign_up_errors"])) {
-                    $errors = $_SESSION["sign_up_errors"];
-            
-                    foreach ($errors as $error) {
-                        echo "<p>" . $error . "</p>";
-                    }
-                    unset($_SESSION["sign_up_errors"]);
-                } 
-            ?>
+            <div id="errors">
+                <?php
+                    signup_status();
+                ?>
+            </div>
         </div>
 
         <!-- Divider -->
@@ -142,7 +141,7 @@
         <!-- Log In Section -->
         <div id="logIN_form" class="form-container">
             <h2 class="text-center">Log In</h2>
-            <form action="includes/login/login_form.inc.php" method="post">
+            <form action="includes/login/form_login.inc.php" method="post">
                 <div class="form-floating mb-3">
                     <input name="LOG_IN_username/email" type="text" class="form-control" placeholder="Enter login/email">
                     <label for="LOG_IN_username/email">Enter login/email</label>
@@ -156,11 +155,16 @@
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Log In</button>
             </form>
+            <div id="errors">
+                <?php
+                    login_status();
+                ?>
+            </div>
         </div>
     </div>
 
-    <div id="footer" class="container-fluid text-center mt-5 py-3 border-top">
-        <span>Nordway 2025 | <a href="https://github.com/stinkyrat612/Nordway-Bank">Source Code</a></span>
+    <div id="footer" class="container-fluid position-absolute bottom-0 text-center mt-5 py-3 border-top">
+        <span>Nordway 2025 | <a href="https://github.com/pigluz/Nordway-Bank">Source Code</a></span>
     </div>
 </body>
 </html>

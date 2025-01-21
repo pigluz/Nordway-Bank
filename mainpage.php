@@ -43,8 +43,17 @@ require_once("includes/config_session.inc.php");
         <span>Hello, nigga!</span>
     </div>
 
-    <div id="footer" class="container-fluid text-center mt-5 py-3 border-top">
-        <span>Nordway 2025 | <a href="https://github.com/stinkyrat612/Nordway-Bank">Source Code</a></span>
+    <!-- 
+    TODO
+    check if the user is logged in, if not transfer them to index.php page
+     add functionalities like:
+        displaying the user balance
+        managing the account (modifying the data, deleting the account)
+        withdrawing/depositing money
+        transaction table
+    -->
+    <div id="footer" class="container-fluid text-center mt-5 py-3 border-top position-absolute bottom-0 ">
+        <span>Nordway 2025 | <a href="https://github.com/pigluz/Nordway-Bank">Source Code</a></span>
     </div>
 </body>
 </html>
