@@ -1,3 +1,5 @@
+![Screenshot of Nordway Bank](src/logo.png)
+
 # Nordway Bank
 
 Nordway Bank is a test project designed to practice and improve PHP and SQL skills. The project is still under development, but it already includes a partially functioning sign-up and login system. Future updates may include features like balance display, money withdrawal, and depositing functionality.
