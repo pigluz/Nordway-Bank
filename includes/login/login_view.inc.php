@@ -3,6 +3,19 @@
 declare(strict_types=1);
 // function to show stuff on the page
 
+function account_status() 
+{
+    if(isset($_GET["logged_off"])) {
+        echo "<div class='alert alert-success text-center mt-3 p-2 d-flex' role'alert'>";
+        echo "<p class='my-auto mx-auto'>Logged out successfully.</p>";
+        echo "</div>";
+    }
+    if(isset($_SESSION["user_id"])) {
+        header("Location: mainpage.php");
+        die();
+    }
+}
+
 function login_status()
 {
     if (isset($_GET["acc_404"])) {

@@ -1,5 +1,6 @@
 <?php
-require_once("includes/config_session.inc.php");
+require_once "includes/config_session.inc.php";
+require_once "includes/mainpage/mainpage_view.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,9 +39,12 @@ require_once("includes/config_session.inc.php");
     </style>
 </head>
 <body>
+    <?php
+        check_user();
+    ?>
     <div id="menu_banner" class="container-fluid text-center">
         <h1>Nordway</h1>
-        <span>Hello, nigga!</span>
+        <span>Hello, <?php echo $_SESSION['user_firstname'];?>!</span>
     </div>
 
     <!-- 
@@ -52,7 +56,10 @@ require_once("includes/config_session.inc.php");
         withdrawing/depositing money
         transaction table
     -->
-    <div id="footer" class="container-fluid text-center mt-5 py-3 border-top position-absolute bottom-0 ">
+    <form action="includes/mainpage/user_actions/logoff.inc.php" method="POST">
+        <button class="btn btn-primary w-100">Log off!</button>
+    </form>
+    <div id="footer" class="container-fluid text-center mt-5 py-3 border-top position-relative bottom-0 ">
         <span>Nordway 2025 | <a href="https://github.com/pigluz/Nordway-Bank">Source Code</a></span>
     </div>
 </body>

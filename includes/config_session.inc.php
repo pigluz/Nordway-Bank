@@ -32,7 +32,6 @@ if (isset($_SESSION["user_id"])) {
     }
 }
 
-
 function regenerate_id()
 {
     session_regenerate_id(true);

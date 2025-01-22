@@ -28,6 +28,5 @@ CREATE TABLE IF NOT EXISTS `transactions` (
 	PRIMARY KEY (`id`)
 );
 
-
 ALTER TABLE `balance` ADD CONSTRAINT `balance_fk1` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`);
 ALTER TABLE `transactions` ADD CONSTRAINT `transactions_fk1` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`);

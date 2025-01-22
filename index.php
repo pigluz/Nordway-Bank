@@ -86,6 +86,11 @@
         <span>For those who strive for more.</span>
     </div>
 
+    <div class="container mt-4 text-center">
+        <?php
+            account_status();
+        ?>
+    </div>
 
     <div class="centered-container">
         <!-- Sign Up Section -->
@@ -163,7 +168,7 @@
         </div>
     </div>
 
-    <div id="footer" class="container-fluid position-absolute bottom-0 text-center mt-5 py-3 border-top">
+    <div id="footer" class="container-fluid position-relative bottom-0 text-center mt-5 py-3 border-top">
         <span>Nordway 2025 | <a href="https://github.com/pigluz/Nordway-Bank">Source Code</a></span>
     </div>
 </body>

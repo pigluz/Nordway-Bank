@@ -34,20 +34,19 @@ function is_email_available (object $pdo, string $email)
 function is_phone_number_valid (string $phonenum) 
 {
     $phonenum_without_spaces = str_replace(" ", "", $phonenum);
-    if(strlen($phonenum_without_spaces) == 9) {
+    if(preg_match('^\+((?:9[679]|8[035789]|6[789]|5[90]|42|3[578]|2[1-689])|9[0-58]|8[1246]|6[0-6]|5[1-8]|4[013-9]|3[0-469]|2[70]|7|1)(?:\W*\d){0,13}\d$', $phonenum_without_spaces)) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 };
 
 function is_phone_number_available(object $pdo, string $phonenum) 
 {
-    if(get_user_by_phonenum($pdo, $phonenum)) {
-        return false;
-    } else {
+    if(!get_user_by_phonenum($pdo, $phonenum)) {
         return true;
+    } else {
+        return false;
     }
 };
 
