@@ -17,8 +17,7 @@ function account_status()
         echo "<div class='alert alert-success text-center mt-3 p-2 d-flex' role'alert'>";
         echo "<p class='my-auto mx-auto'>Password has been changed.</p>";
         echo "</div>";
-    }
-    if (isset($_GET["reg_succ"])) {
+    } else if (isset($_GET["reg_succ"])) {
         echo "<div class= 'alert alert-success text-center mt-3 p-2 d-flex' role='alert'>";
         echo "<p class='my-auto  mx-auto'>Successfully created an account!</p>";
         echo "</div>"; 
