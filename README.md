@@ -29,6 +29,7 @@ Nordway Bank is a test project designed to practice and improve PHP and SQL skil
 3. **Future Features:** The main page will include balance display, withdrawal, and deposit options.
 
 ## Technologies Used
+- **Bootstrap 5**: For styling the document.
 - **PHP**: For backend logic.
 - **SQL**: For database management.
 - **phpMyAdmin**: For database interaction.
