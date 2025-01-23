@@ -1,7 +1,7 @@
 <?php
-
 declare(strict_types=1);
 // validation, etc stuff
+
 function are_inputs_filled(string $email_login, string $pwd) 
 {
     if(empty($email_login) || empty($pwd)) {

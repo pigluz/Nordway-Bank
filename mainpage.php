@@ -2,6 +2,7 @@
 require_once "includes/config_session.inc.php";
 require_once "includes/mainpage/mainpage_view.inc.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,8 +1,8 @@
 <?php
     require_once "includes/config_session.inc.php";
-    require_once "includes/registration/reg_view.inc.php";
-    require_once "includes/login/login_view.inc.php";
+    require_once "includes/log_reg_view.inc.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
