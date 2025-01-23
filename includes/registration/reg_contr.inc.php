@@ -1,56 +1,67 @@
 <?php
-
 declare(strict_types=1);
 // validation, etc stuff
 
-
-function are_inputs_filled(string $name, string $surname, string $phonenum, string $email, string $birth_place, string $pwd) 
+function are_inputs_empty(string $name, string $surname, string $phonenum, string $email, string $ssn, string $pwd) 
 {
-    if(empty($name) || empty($surname) || empty($phonenum) || empty($email) || empty($birth_place) || empty($pwd)) {
-        return false;
-    } else {
+    if(empty($name) || empty($surname) || empty($phonenum) || empty($email) || empty($ssn) || empty($pwd)) {
         return true;
+    } else {
+        return false;
     }
 };
 
-function is_email_valid(string $email) 
+function is_email_invalid(string $email) 
 {
     if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return true;
-    } else {
         return false;
+    } else {
+        return true;
     }
 };
 
-function is_email_available (object $pdo, string $email) 
+function is_email_unavailable (object $pdo, string $email) 
 {
     if(get_user_by_email($pdo, $email)) {
-        return false;
-    } else {
-        return true;
-    }
-};
-
-function is_phone_number_valid (string $phonenum) 
-{
-    $phonenum_without_spaces = str_replace(" ", "", $phonenum);
-    if(preg_match('^\+((?:9[679]|8[035789]|6[789]|5[90]|42|3[578]|2[1-689])|9[0-58]|8[1246]|6[0-6]|5[1-8]|4[013-9]|3[0-469]|2[70]|7|1)(?:\W*\d){0,13}\d$', $phonenum_without_spaces)) {
         return true;
     } else {
         return false;
     }
 };
 
-function is_phone_number_available(object $pdo, string $phonenum) 
+function is_phone_number_invalid (string $phonenum) 
 {
-    if(!get_user_by_phonenum($pdo, $phonenum)) {
+    if(preg_match('/^\d{3}[-\s]?\d{3}[-\s]?\d{3}$/', $phonenum)) {
+        return false;
+    } else {
+        return true;
+    }
+};
+
+function is_phone_number_unavailable(object $pdo, string $phonenum) 
+{
+    if(get_user_by_phonenum($pdo, $phonenum)) {
         return true;
     } else {
         return false;
     }
 };
-
-function create_user(object $pdo, string $name, string $surname, string $email, string $phonenum, string $birth_place, string $pwd) 
+function is_ssn_invalid(string $ssn) 
 {
-    set_user($pdo, $name, $surname, $email, $phonenum, $birth_place, $pwd);
+    if(preg_match('/^\d{11}$/', $ssn)){ // regex na pesel lol
+        return false;
+    }   else {
+        return true;
+    }
 }
+function is_ssn_unavailable(object $pdo, string $ssn) {
+    if(get_user_by_ssn($pdo, $ssn)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function create_user(object $pdo, string $name, string $surname, string $email, string $phonenum, string $ssn, string $pwd) 
+{
+    set_user($pdo, $name, $surname, $email, $phonenum, $ssn, $pwd);
+};

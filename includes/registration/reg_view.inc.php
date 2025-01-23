@@ -3,13 +3,7 @@
 declare(strict_types=1);
 // function to show stuff on the page
 function signup_status()
-{
-    if (isset($_GET["reg_succ"])) {
-        echo "div class= 'alert alert-success text-center mt-3 p-1' role='alert'>";
-        echo "<p class='my-auto'>Successfully created an account!</p>";
-        echo "</div>"; 
-    }
-    
+{    
     if (isset($_SESSION["sign_up_errors"])) {
         $errors = $_SESSION["sign_up_errors"];
 

@@ -9,6 +9,19 @@ function account_status()
         echo "<div class='alert alert-success text-center mt-3 p-2 d-flex' role'alert'>";
         echo "<p class='my-auto mx-auto'>Logged out successfully.</p>";
         echo "</div>";
+    } else if(isset($_GET["acc_deleted"])) {
+        echo "<div class='alert alert-success text-center mt-3 p-2 d-flex' role'alert'>";
+        echo "<p class='my-auto mx-auto'>Account has been deleted.</p>";
+        echo "</div>";
+    } else if(isset($_GET["pwd_changed"])) {
+        echo "<div class='alert alert-success text-center mt-3 p-2 d-flex' role'alert'>";
+        echo "<p class='my-auto mx-auto'>Password has been changed.</p>";
+        echo "</div>";
+    }
+    if (isset($_GET["reg_succ"])) {
+        echo "<div class= 'alert alert-success text-center mt-3 p-2 d-flex' role='alert'>";
+        echo "<p class='my-auto  mx-auto'>Successfully created an account!</p>";
+        echo "</div>"; 
     }
     if(isset($_SESSION["user_id"])) {
         header("Location: mainpage.php");

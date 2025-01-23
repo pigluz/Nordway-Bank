@@ -7,7 +7,7 @@ require_once "includes/mainpage/mainpage_view.inc.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nordway</title>
+    <title>Nordway | Main page</title>
     <liak rel="stylesheet" href="css/main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -24,6 +24,9 @@ require_once "includes/mainpage/mainpage_view.inc.php";
             position: absolute;
             left: 10px;
             top: 10px;
+        }
+        #footer {
+            background-color: #f8f9fa;
         }
         @media (max-width: 768px) {
             .centered-container {
@@ -59,7 +62,8 @@ require_once "includes/mainpage/mainpage_view.inc.php";
     <form action="includes/mainpage/user_actions/logoff.inc.php" method="POST">
         <button class="btn btn-primary w-100">Log off!</button>
     </form>
-    <div id="footer" class="container-fluid text-center mt-5 py-3 border-top position-relative bottom-0 ">
+
+    <div id="footer" class="container-fluid position-relative bottom-0 text-center mt-5 py-3 border-top">
         <span>Nordway 2025 | <a href="https://github.com/pigluz/Nordway-Bank">Source Code</a></span>
     </div>
 </body>

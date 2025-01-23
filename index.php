@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nordway</title>
+    <title>Nordway | Sign up</title>
     <link rel="stylesheet" href="css/main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -24,7 +24,7 @@
         #menu_banner {
             background-color: #007bff;
             color: white;
-            padding: 20px 0; /* Reduced padding */
+            padding: 20px 0; 
         }
         .form-container {
             border: 1px solid #ddd;
@@ -66,10 +66,13 @@
         .form-container h2 {
             margin-bottom: 20px;
         }
+        #footer {
+            background-color: #f8f9fa;
+        }
         @media (max-width: 768px) {
             .centered-container {
                 flex-direction: column;
-                align-items: center; /* Centered on small screens */
+                align-items: center; 
             }
             .divider {
                 width: 100%;
@@ -93,7 +96,6 @@
     </div>
 
     <div class="centered-container">
-        <!-- Sign Up Section -->
         <div id="signUP_form" class="form-container">
             <h2 class="text-center">Sign Up</h2>
             <form action="includes/registration/form_reg.inc.php" method="post">
@@ -120,8 +122,8 @@
                     <label for="SIGN_UP_phoneNr">Enter phone number</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input name="SIGN_UP_birthPlace" type="text" class="form-control" placeholder="Enter birth place">
-                    <label for="SIGN_UP_birthPlace">Enter birth place</label>
+                    <input name="SIGN_UP_ssn" type="text" class="form-control" placeholder="Enter SSN">
+                    <label for="SIGN_UP_snn">Enter SSN</label> <!--PESEL-->
                 </div>
                 <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" id="terms" required>
@@ -138,12 +140,12 @@
             </div>
         </div>
 
-        <!-- Divider -->
+        
         <div class="divider">
             <span>or</span>
         </div>
 
-        <!-- Log In Section -->
+        
         <div id="logIN_form" class="form-container">
             <h2 class="text-center">Log In</h2>
             <form action="includes/login/form_login.inc.php" method="post">
@@ -156,7 +158,7 @@
                     <label for="LOG_IN_password">Enter password</label>
                 </div>
                 <div class="text-center mb-3">
-                    <a href="#">Forgot password?</a>
+                    <a href="forgot_pwd.php">Forgot password?</a>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Log In</button>
             </form>

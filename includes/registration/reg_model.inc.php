@@ -25,18 +25,33 @@ function get_user_by_phonenum(object $pdo, string $phonenum)
     return $result;
 }
 
-function set_user(object $pdo, string $name, string $surname, string $email, string $phonenum, string $birth_place, string $pwd)
+function get_user_by_ssn(object $pdo, string $unhashed_ssn) {
+    $options = [
+        'cost' => 12
+    ];
+    $hashedSSN = password_hash($unhashed_ssn, PASSWORD_DEFAULT, $options);
+    $query = 'SELECT * FROM users WHERE ssn = :ssn';
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":ssn", $hashedSSN);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+function set_user(object $pdo, string $name, string $surname, string $email, string $phonenum, string $ssn, string $pwd)
 {
     // generate random login
     $login = rand(10000000, 99999999);
 
-    $query = "INSERT INTO users (name, surname, email, phonenum, birth_place, login, pwd)
-        VALUES (:name, :surname, :email, :phonenum, :birth_place, :login, :pwd)";
+    $query = "INSERT INTO users (name, surname, email, phonenum, ssn, login, pwd)
+        VALUES (:name, :surname, :email, :phonenum, :ssn, :login, :pwd)";
 
     // hashing password
     $options = [
         'cost' => 12
     ];
+    $hashedSSN = password_hash($ssn, PASSWORD_DEFAULT, $options);
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT, $options);
 
     $stmt = $pdo->prepare($query);
@@ -44,7 +59,7 @@ function set_user(object $pdo, string $name, string $surname, string $email, str
     $stmt->bindParam(":surname", $surname);
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":phonenum", $phonenum);
-    $stmt->bindParam(":birth_place", $birth_place);
+    $stmt->bindParam(":ssn", $hashedSSN);
     $stmt->bindParam(":login", $login);
     $stmt->bindParam(":pwd", $hashedPwd);
 
